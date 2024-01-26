@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  monolith:
+    build:
+      context: .
+      dockerfile: php.monolith.Dockerfile
+      args:
+        - IMAGE_TAG=${PHP_IMAGE_TAG}
+    container_name: fma_monolith_php
+    volumes:
+      - ./app:/var/www/html:rw
