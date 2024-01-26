@@ -15,13 +15,16 @@
         "symfony/yaml": "7.0.*"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.10"
+        "phpstan/phpstan": "^1.10",
+        "slevomat/coding-standard": "^8.14",
+        "squizlabs/php_codesniffer": "^3.8"
     },
     "config": {
         "allow-plugins": {
             "php-http/discovery": true,
             "symfony/flex": true,
-            "symfony/runtime": true
+            "symfony/runtime": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         },
         "sort-packages": true
     },
