@@ -1,0 +1,4 @@
+api.core.accounts.register:
+  path: /api/accounts
+  methods: POST
+  controller: App\Core\RegisterAccount\Presentation\RegisterAccountController::register
