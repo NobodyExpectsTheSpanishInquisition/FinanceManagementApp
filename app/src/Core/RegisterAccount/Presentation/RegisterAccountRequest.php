@@ -6,5 +6,4 @@ namespace App\Core\RegisterAccount\Presentation;
 
 final readonly class RegisterAccountRequest
 {
-
 }
