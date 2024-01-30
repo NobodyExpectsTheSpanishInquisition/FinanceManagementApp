@@ -7,4 +7,5 @@ namespace App\Tests;
 enum TestStatusCode: int
 {
     case INTERNAL_SERVER_ERROR = 500;
+    case UNPROCESSABLE_ENTITY = 422;
 }

@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Property App\\\\Tests\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountControllerUnitTest\\:\\:\\$handlerMock has unresolvable native type\\.$#"
+			count: 1
+			path: tests/Core/RegisterAccount/Presentation/RegisterAccountControllerUnitTest.php
+
+		-
+			message: "#^Return type of call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) contains unresolvable type\\.$#"
+			count: 1
+			path: tests/Core/RegisterAccount/Presentation/RegisterAccountControllerUnitTest.php
+
+		-
+			message: "#^Property App\\\\Tests\\\\SmokeTestCase\\:\\:\\$router \\(Symfony\\\\Component\\\\Routing\\\\Router\\) does not accept object\\.$#"
+			count: 1
+			path: tests/SmokeTestCase.php

@@ -6,7 +6,7 @@ use App\Tests\SmokeTestCase;
 use App\Tests\TestHttpStatusCode;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
-class RegisterAccountControllerTest extends SmokeTestCase
+class RegisterAccountControllerSmokeTest extends SmokeTestCase
 {
     private RegisterAccountControllerTestData $testData;
 

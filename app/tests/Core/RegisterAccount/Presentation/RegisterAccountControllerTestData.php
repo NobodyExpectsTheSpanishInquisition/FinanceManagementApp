@@ -27,8 +27,8 @@ final readonly class RegisterAccountControllerTestData
                 'id' => '8BCC4F4F-5257-4AAC-B445-F01E842038CB',
                 'firstName' => 'John',
                 'lastName' => 'Doe',
-                'email' => 'john.doe@email.com'
-            ]
+                'email' => 'john.doe@email.com',
+            ],
         ];
     }
 }

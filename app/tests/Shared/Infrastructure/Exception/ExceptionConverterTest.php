@@ -16,14 +16,14 @@ class ExceptionConverterTest extends UnitTestCase
         $unrecognizedException = new TestUnrecognizedException();
 
         $this->expectException(CannotConvertExceptionHttpRuntimeException::class);
-        $this->converter->convert($unrecognizedException);
+        $this->converter->convertToJsonResponse($unrecognizedException);
     }
 
     public function testConvert_ShouldReturnBadRequestHttpException_WhenInstanceOfRequestExceptionPassed(): void
     {
         $exception = new TestRequestException();
 
-        $result = $this->converter->convert($exception);
+        $result = $this->converter->convertToJsonResponse($exception);
 
         self::assertInstanceOf(BadRequestHttpException::class, $result);
     }
