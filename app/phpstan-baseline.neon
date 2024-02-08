@@ -1,14 +1,49 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Property App\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountRequestMapper\\:\\:\\$emailFactory is never read, only written\\.$#"
+			count: 1
+			path: src/Core/RegisterAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Property App\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountRequestMapper\\:\\:\\$hashedPasswordFactory is never read, only written\\.$#"
+			count: 1
+			path: src/Core/RegisterAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Property App\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountRequestMapper\\:\\:\\$uuidFactory is never read, only written\\.$#"
+			count: 1
+			path: src/Core/RegisterAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$violation of static method App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\Exception\\\\CannotCreatePasswordException\\:\\:becauseThereIsViolation\\(\\) expects string, string\\|Stringable given\\.$#"
+			count: 1
+			path: src/Core/Shared/Infrastructure/Factory/ValueObject/SymfonyHashedPasswordFactory.php
+
+		-
 			message: "#^Property App\\\\Tests\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountControllerUnitTest\\:\\:\\$handlerMock has unresolvable native type\\.$#"
 			count: 1
 			path: tests/Core/RegisterAccount/Presentation/RegisterAccountControllerUnitTest.php
 
 		-
-			message: "#^Return type of call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) contains unresolvable type\\.$#"
+			message: "#^Property App\\\\Tests\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountControllerUnitTest\\:\\:\\$requestMapperMock has unresolvable native type\\.$#"
 			count: 1
 			path: tests/Core/RegisterAccount/Presentation/RegisterAccountControllerUnitTest.php
+
+		-
+			message: "#^Return type of call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) contains unresolvable type\\.$#"
+			count: 2
+			path: tests/Core/RegisterAccount/Presentation/RegisterAccountControllerUnitTest.php
+
+		-
+			message: "#^Call to an undefined method PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\|Symfony\\\\Component\\\\Validator\\\\Validator\\\\ValidatorInterface\\:\\:method\\(\\)\\.$#"
+			count: 2
+			path: tests/Core/Shared/Infrastructure/Factory/ValueObject/SymfonyHashedPasswordFactoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$validator of class App\\\\Core\\\\Shared\\\\Infrastructure\\\\Factory\\\\ValueObject\\\\SymfonyHashedPasswordFactory constructor expects Symfony\\\\Component\\\\Validator\\\\Validator\\\\ValidatorInterface, PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\|Symfony\\\\Component\\\\Validator\\\\Validator\\\\ValidatorInterface given\\.$#"
+			count: 1
+			path: tests/Core/Shared/Infrastructure/Factory/ValueObject/SymfonyHashedPasswordFactoryTest.php
 
 		-
 			message: "#^Property App\\\\Tests\\\\SmokeTestCase\\:\\:\\$router \\(Symfony\\\\Component\\\\Routing\\\\Router\\) does not accept object\\.$#"

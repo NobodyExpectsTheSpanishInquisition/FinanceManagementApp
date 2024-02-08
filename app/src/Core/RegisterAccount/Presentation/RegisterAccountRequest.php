@@ -6,4 +6,7 @@ namespace App\Core\RegisterAccount\Presentation;
 
 final readonly class RegisterAccountRequest
 {
+    public function __construct()
+    {
+    }
 }
