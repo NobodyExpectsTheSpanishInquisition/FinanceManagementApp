@@ -20,9 +20,9 @@ final class RegisterAccountController extends AbstractController
         RegisterAccountHandler $handler
     ):
     JsonResponse {
-        $registerAccountRequest = $requestMapper->map($request);
-
         try {
+            $registerAccountRequest = $requestMapper->map($request);
+
             $handler->handle(new RegisterAccountCommand());
         } catch (Exception $e) {
             return $this->exceptionConverter->convertToJsonResponse($e);

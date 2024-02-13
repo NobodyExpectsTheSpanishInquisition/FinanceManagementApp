@@ -19,9 +19,16 @@ class RegisterAccountControllerSmokeTest extends SmokeTestCase
 
     public function testRegisterAccount_ShouldReturn422StatusCode_WhenHandlerThrowsException(): void
     {
-        $this->expectException(UnprocessableEntityHttpException::class);
-        $this->expectExceptionCode(TestHttpStatusCode::UNPROCESSABLE_ENTITY->value);
-        $this->sendPostRequest($this->testData->getRouteName(), $this->testData->getParameters());
+        $response = $this->sendPostRequest($this->testData->getRouteName(), $this->testData->getParameters());
+
+        self::assertEquals(422, $response->getStatusCode());
+    }
+
+    public function testRegisterAccount_ShouldReturn400StatusCode_WhenRequestMapperThrowsException(): void
+    {
+        $response = $this->sendPostRequest($this->testData->getRouteName(), $this->testData->getParameters());
+
+        self::assertEquals(400, $response->getStatusCode());
     }
 
     protected function setUp(): void

@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Core\Shared\Domain\ValueObject;
 
-enum AccountType
+enum AccountType: string
 {
-    case FREE;
-    case PREMIUM;
-    case ENTERPRISE;
+    case FREE = 'FREE';
 }
