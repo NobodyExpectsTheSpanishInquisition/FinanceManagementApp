@@ -7,4 +7,5 @@ namespace App\Shared\Presentation\Http;
 enum StatusCode: int
 {
     case INTERNAL_SERVER_ERROR = 500;
+    case BAD_REQUEST = 400;
 }
