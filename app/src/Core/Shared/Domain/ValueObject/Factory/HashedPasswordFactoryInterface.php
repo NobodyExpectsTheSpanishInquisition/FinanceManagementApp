@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace App\Core\Shared\Domain\ValueObject\Factory;
 
-use App\Core\Shared\Domain\ValueObject\Exception\CannotCreatePasswordException;
+use App\Core\Shared\Domain\ValueObject\Exception\CannotHashPasswordException;
 use App\Core\Shared\Domain\ValueObject\HashedPassword;
+use App\Core\Shared\Infrastructure\ValueObject\PlainPassword;
 
 interface HashedPasswordFactoryInterface
 {
+
     /**
-     * @throws CannotCreatePasswordException
+     * @throws CannotHashPasswordException
      */
-    public function fromString(string $plainPasswordString): HashedPassword;
+    public function fromPlainPassword(PlainPassword $plainPassword): HashedPassword;
 }

@@ -25,7 +25,17 @@ final class RegisterAccountController extends AbstractController
         try {
             $this->requestValidator->assertRequestIsValid($registerAccountRequest);
 
-            $handler->handle(new RegisterAccountCommand());
+            $handler->handle(
+                new RegisterAccountCommand(
+                    $registerAccountRequest->accountId,
+                    $registerAccountRequest->userId,
+                    $registerAccountRequest->firstName,
+                    $registerAccountRequest->lastName,
+                    $registerAccountRequest->email,
+                    $registerAccountRequest->password,
+                    $registerAccountRequest->accountType
+                )
+            );
         } catch (Exception $e) {
             return $this->exceptionConverter->convertToJsonResponse($e);
         }

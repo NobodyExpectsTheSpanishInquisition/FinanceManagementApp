@@ -27,7 +27,7 @@ final class SymfonyHashedPasswordFactoryTest extends TestCase
         $this->validatorMock->method('validate')->willReturn($emptyViolationsList);
         $factory = $this->getFactory();
 
-        $hashedPassword = $factory->fromString($this->plainPasswordString);
+        $hashedPassword = $factory->fromPlainPassword($this->plainPasswordString);
 
         self::assertTrue($this->hasher->isPasswordValid($hashedPassword, $this->plainPasswordString));
     }
@@ -47,7 +47,7 @@ final class SymfonyHashedPasswordFactoryTest extends TestCase
         $factory = $this->getFactory();
 
         $this->expectExceptionObject(CannotCreatePasswordException::becauseThereIsViolation($violation->getMessage()));
-        $factory->fromString($this->plainPasswordString);
+        $factory->fromPlainPassword($this->plainPasswordString);
     }
 
     private function getFactory(): SymfonyHashedPasswordFactory
