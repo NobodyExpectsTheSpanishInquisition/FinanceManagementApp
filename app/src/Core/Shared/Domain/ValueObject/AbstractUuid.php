@@ -6,7 +6,7 @@ namespace App\Core\Shared\Domain\ValueObject;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-final readonly class Uuid
+abstract readonly class AbstractUuid
 {
     public function __construct(#[Assert\Uuid(versions: 4, strict: true)] public string $uuid)
     {
