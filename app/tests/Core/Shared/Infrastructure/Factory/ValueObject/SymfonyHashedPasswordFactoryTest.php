@@ -32,7 +32,7 @@ final class SymfonyHashedPasswordFactoryTest extends TestCase
 
         $hashedPassword = $factory->fromPlainPassword($this->plainPassword);
 
-        self::assertTrue($this->hasher->isPasswordValid($hashedPassword, $this->plainPassword->password));
+        self::assertTrue($this->hasher->isPasswordValid($hashedPassword, $this->plainPassword->getPassword()));
     }
 
     public function test_FromString_ShouldThrowException_WhenPlainPasswordHasViolation(): void

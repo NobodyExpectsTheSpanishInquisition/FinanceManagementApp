@@ -17,7 +17,7 @@ final readonly class PlainPassword implements PasswordAuthenticatedUserInterface
         $this->password = $password;
     }
 
-    public function getPassword(): ?string
+    public function getPassword(): string
     {
         return $this->password;
     }
