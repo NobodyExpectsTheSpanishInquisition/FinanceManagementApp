@@ -37,7 +37,8 @@ final readonly class FreeAccountFactory
                 $email,
                 $password,
                 $createdAt
-            ), $createdAt
+            ),
+            $createdAt
         );
     }
 }

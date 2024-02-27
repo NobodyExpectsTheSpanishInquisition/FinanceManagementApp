@@ -14,5 +14,4 @@ final readonly class FreeAccount extends Account
     {
         parent::__construct($id, AccountType::FREE, $createdAt);
     }
-
 }

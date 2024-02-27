@@ -13,7 +13,6 @@ class AbstractController extends SymfonyAbstractController
     public function __construct(
         protected ExceptionConverter $exceptionConverter,
         protected RequestValidatorInterface $requestValidator
-    )
-    {
+    ) {
     }
 }

@@ -25,6 +25,15 @@ final class RegisterFreeAccountHandlerTest extends ApplicationTestCase
         $this->assertions->assertAccountRegistered($this->eventDispatcherSpy);
     }
 
+    public function test_Handle_ShouldThrowException_WhenProvidedEmailAlreadyExists(): void
+    {
+        $this->mockEmailRepository(doesEmailExists: true);
+        $handler = $this->getHandler();
+
+        $this->assertions->assertExceptionWasThrownBecauseOfTakenEmail();
+        $handler->handle($this->testData->getCommand());
+    }
+
     private function mockEmailRepository(bool $doesEmailExists): void
     {
         $emailRepositoryMock = $this->createMock(EmailRepositoryInterface::class);
@@ -38,15 +47,6 @@ final class RegisterFreeAccountHandlerTest extends ApplicationTestCase
     private function getHandler(): RegisterFreeAccountHandler
     {
         return $this->container->get(RegisterFreeAccountHandler::class);
-    }
-
-    public function test_Handle_ShouldThrowException_WhenProvidedEmailAlreadyExists(): void
-    {
-        $this->mockEmailRepository(doesEmailExists: true);
-        $handler = $this->getHandler();
-
-        $this->assertions->assertExceptionWasThrownBecauseOfTakenEmail();
-        $handler->handle($this->testData->getCommand());
     }
 
     protected function setUp(): void

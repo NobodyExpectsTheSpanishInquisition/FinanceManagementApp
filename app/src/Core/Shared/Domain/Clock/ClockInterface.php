@@ -8,5 +8,4 @@ use Psr\Clock\ClockInterface as PsrClockInterface;
 
 interface ClockInterface extends PsrClockInterface
 {
-
 }

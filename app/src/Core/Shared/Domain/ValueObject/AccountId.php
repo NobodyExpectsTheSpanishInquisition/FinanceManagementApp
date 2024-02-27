@@ -8,5 +8,4 @@ use App\Core\Shared\Domain\ValueObject\AbstractUuid;
 
 final readonly class AccountId extends AbstractUuid
 {
-
 }

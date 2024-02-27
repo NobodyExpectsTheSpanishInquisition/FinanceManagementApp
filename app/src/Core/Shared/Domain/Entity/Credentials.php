@@ -23,7 +23,7 @@ final readonly class Credentials implements JsonSerializable
         return [
             'email' => $this->email,
             'password' => $this->password,
-            'updatedAt' => $this->updatedAt
+            'updatedAt' => $this->updatedAt->toString(),
         ];
     }
 }

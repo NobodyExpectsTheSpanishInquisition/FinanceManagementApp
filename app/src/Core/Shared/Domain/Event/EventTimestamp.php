@@ -8,5 +8,4 @@ use App\Core\Shared\Domain\ValueObject\Timestamp;
 
 final readonly class EventTimestamp extends Timestamp
 {
-
 }

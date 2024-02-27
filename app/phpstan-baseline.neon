@@ -1,51 +1,126 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Property App\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountRequestMapper\\:\\:\\$emailFactory is never read, only written\\.$#"
+			message: "#^Cannot access offset 'accountType' on mixed\\.$#"
 			count: 1
-			path: src/Core/RegisterAccount/Presentation/RegisterAccountRequestMapper.php
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
 
 		-
-			message: "#^Property App\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountRequestMapper\\:\\:\\$hashedPasswordFactory is never read, only written\\.$#"
+			message: "#^Cannot access offset 'email' on mixed\\.$#"
 			count: 1
-			path: src/Core/RegisterAccount/Presentation/RegisterAccountRequestMapper.php
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
 
 		-
-			message: "#^Property App\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountRequestMapper\\:\\:\\$uuidFactory is never read, only written\\.$#"
+			message: "#^Cannot access offset 'firstName' on mixed\\.$#"
 			count: 1
-			path: src/Core/RegisterAccount/Presentation/RegisterAccountRequestMapper.php
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
 
 		-
-			message: "#^Parameter \\#1 \\$violation of static method App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\Exception\\\\CannotCreatePasswordException\\:\\:becauseThereIsViolation\\(\\) expects string, string\\|Stringable given\\.$#"
+			message: "#^Cannot access offset 'id' on mixed\\.$#"
+			count: 2
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'lastName' on mixed\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'password' on mixed\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'user' on mixed\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$email of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\Email constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$firstName of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\FirstName constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$lastName of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\LastName constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$password of class App\\\\Core\\\\Shared\\\\Infrastructure\\\\ValueObject\\\\PlainPassword constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$uuid of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\AccountId constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$uuid of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\UserId constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\AccountType\\:\\:from\\(\\) expects int\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Method App\\\\Core\\\\Shared\\\\Domain\\\\Entity\\\\Credentials\\:\\:jsonSerialize\\(\\) should return array\\<string, string\\> but returns array\\<string, App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\Email\\|App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\HashedPassword\\|string\\>\\.$#"
+			count: 1
+			path: src/Core/Shared/Domain/Entity/Credentials.php
+
+		-
+			message: "#^Property App\\\\Core\\\\Shared\\\\Domain\\\\Entity\\\\FreeAccount\\:\\:\\$user is never read, only written\\.$#"
+			count: 1
+			path: src/Core/Shared/Domain/Entity/FreeAccount.php
+
+		-
+			message: "#^Property App\\\\Core\\\\Shared\\\\Infrastructure\\\\Event\\\\MessengerEventDispatcher\\:\\:\\$events is never read, only written\\.$#"
+			count: 1
+			path: src/Core/Shared/Infrastructure/Event/MessengerEventDispatcher.php
+
+		-
+			message: "#^Parameter \\#1 \\$violation of static method App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\Exception\\\\CannotHashPasswordException\\:\\:becauseThereIsViolation\\(\\) expects string, string\\|Stringable given\\.$#"
 			count: 1
 			path: src/Core/Shared/Infrastructure/Factory/ValueObject/SymfonyHashedPasswordFactory.php
 
 		-
-			message: "#^Property App\\\\Tests\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountControllerUnitTest\\:\\:\\$handlerMock has unresolvable native type\\.$#"
+			message: "#^Parameter \\#1 \\$message of class App\\\\Core\\\\Shared\\\\Infrastructure\\\\Request\\\\InvalidRequestException constructor expects string, string\\|Stringable given\\.$#"
 			count: 1
-			path: tests/Core/RegisterAccount/Presentation/RegisterAccountControllerUnitTest.php
+			path: src/Core/Shared/Infrastructure/Request/SymfonyRequestValidator.php
 
 		-
-			message: "#^Property App\\\\Tests\\\\Core\\\\RegisterAccount\\\\Presentation\\\\RegisterAccountControllerUnitTest\\:\\:\\$requestMapperMock has unresolvable native type\\.$#"
+			message: "#^Method App\\\\Tests\\\\ApplicationTestCase\\:\\:getEventDispatcherSpy\\(\\) should return App\\\\Tests\\\\Spy\\\\EventDispatcherSpy but returns object\\|null\\.$#"
 			count: 1
-			path: tests/Core/RegisterAccount/Presentation/RegisterAccountControllerUnitTest.php
+			path: tests/ApplicationTestCase.php
 
 		-
-			message: "#^Return type of call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) contains unresolvable type\\.$#"
-			count: 2
-			path: tests/Core/RegisterAccount/Presentation/RegisterAccountControllerUnitTest.php
-
-		-
-			message: "#^Call to an undefined method PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\|Symfony\\\\Component\\\\Validator\\\\Validator\\\\ValidatorInterface\\:\\:method\\(\\)\\.$#"
-			count: 2
-			path: tests/Core/Shared/Infrastructure/Factory/ValueObject/SymfonyHashedPasswordFactoryTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$validator of class App\\\\Core\\\\Shared\\\\Infrastructure\\\\Factory\\\\ValueObject\\\\SymfonyHashedPasswordFactory constructor expects Symfony\\\\Component\\\\Validator\\\\Validator\\\\ValidatorInterface, PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\|Symfony\\\\Component\\\\Validator\\\\Validator\\\\ValidatorInterface given\\.$#"
+			message: "#^Service \"App\\\\Tests\\\\Spy\\\\EventDispatcherSpy\" is not registered in the container\\.$#"
 			count: 1
-			path: tests/Core/Shared/Infrastructure/Factory/ValueObject/SymfonyHashedPasswordFactoryTest.php
+			path: tests/ApplicationTestCase.php
 
 		-
-			message: "#^Property App\\\\Tests\\\\SmokeTestCase\\:\\:\\$router \\(Symfony\\\\Component\\\\Routing\\\\Router\\) does not accept object\\.$#"
+			message: "#^Method App\\\\Tests\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountControllerTestData\\:\\:getRequestContent\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: tests/Core/RegisterFreeAccount/Presentation/RegisterAccountControllerTestData.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountControllerTestData\\:\\:getRequestContentArray\\(\\) should return array\\<string, mixed\\> but returns mixed\\.$#"
+			count: 1
+			path: tests/Core/RegisterFreeAccount/Presentation/RegisterAccountControllerTestData.php
+
+		-
+			message: "#^Parameter \\$content of method Symfony\\\\Component\\\\BrowserKit\\\\AbstractBrowser\\:\\:request\\(\\) expects string\\|null, string\\|false given\\.$#"
 			count: 1
 			path: tests/SmokeTestCase.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Stub\\\\ClockStub\\:\\:now\\(\\) should return DateTimeImmutable but returns DateTimeImmutable\\|false\\.$#"
+			count: 1
+			path: tests/Stub/ClockStub.php

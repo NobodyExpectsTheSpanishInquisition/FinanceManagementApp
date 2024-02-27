@@ -22,7 +22,7 @@ class ExceptionConverterTest extends UnitTestCase
                     'error' => [
                         'message' => $exception->getMessage(),
                         'statusCode' => $exception->getCode(),
-                    ]
+                    ],
                 ]
             ),
             $response->getContent()

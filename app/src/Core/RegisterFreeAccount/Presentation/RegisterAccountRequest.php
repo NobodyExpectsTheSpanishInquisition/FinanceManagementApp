@@ -14,16 +14,22 @@ use App\Core\Shared\Infrastructure\Request\RequestInterface;
 use App\Core\Shared\Infrastructure\ValueObject\PlainPassword;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 final readonly class RegisterAccountRequest implements RequestInterface
 {
     public const ACCOUNT_ID_KEY = 'id';
+
     public const USER_KEY = 'user';
+
     public const USER_ID_KEY = 'id';
+
     public const FIRST_NAME_KEY = 'firstName';
+
     public const LAST_NAME_KEY = 'lastName';
+
     public const EMAIL_KEY = 'email';
+
     public const PASSWORD_KEY = 'password';
+
     public const ACCOUNT_TYPE_KEY = 'accountType';
 
     public function __construct(
@@ -34,7 +40,6 @@ final readonly class RegisterAccountRequest implements RequestInterface
         #[Assert\Valid] public Email $email,
         #[Assert\Valid] public PlainPassword $password,
         #[Assert\Valid] public AccountType $accountType
-    )
-    {
+    ) {
     }
 }

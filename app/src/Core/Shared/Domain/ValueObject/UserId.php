@@ -6,5 +6,4 @@ namespace App\Core\Shared\Domain\ValueObject;
 
 final readonly class UserId extends AbstractUuid
 {
-
 }

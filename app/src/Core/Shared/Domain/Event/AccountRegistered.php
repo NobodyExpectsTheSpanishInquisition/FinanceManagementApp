@@ -19,9 +19,9 @@ final readonly class AccountRegistered implements EventInterface
     {
         return [
             'data' => [
-                'account' => $this->account->jsonSerialize()
+                'account' => $this->account->jsonSerialize(),
             ],
-            'timestamp' => $this->timestamp->toString()
+            'timestamp' => $this->timestamp->toString(),
         ];
     }
 }

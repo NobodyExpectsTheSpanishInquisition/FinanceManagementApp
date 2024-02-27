@@ -17,7 +17,10 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 final class SymfonyHashedPasswordFactoryTest extends TestCase
 {
-    private ValidatorInterface|MockObject $validatorMock;
+    /**
+     * @var ValidatorInterface&MockObject
+     */
+    private ValidatorInterface $validatorMock;
     private PlainPassword $plainPassword;
     private UserPasswordHasher $hasher;
 
@@ -30,11 +33,6 @@ final class SymfonyHashedPasswordFactoryTest extends TestCase
         $hashedPassword = $factory->fromPlainPassword($this->plainPassword);
 
         self::assertTrue($this->hasher->isPasswordValid($hashedPassword, $this->plainPassword->password));
-    }
-
-    private function getFactory(): SymfonyHashedPasswordFactory
-    {
-        return new SymfonyHashedPasswordFactory($this->validatorMock, $this->hasher);
     }
 
     public function test_FromString_ShouldThrowException_WhenPlainPasswordHasViolation(): void
@@ -53,6 +51,11 @@ final class SymfonyHashedPasswordFactoryTest extends TestCase
 
         $this->expectExceptionObject(CannotHashPasswordException::becauseThereIsViolation($violation->getMessage()));
         $factory->fromPlainPassword($this->plainPassword);
+    }
+
+    private function getFactory(): SymfonyHashedPasswordFactory
+    {
+        return new SymfonyHashedPasswordFactory($this->validatorMock, $this->hasher);
     }
 
     protected function setUp(): void

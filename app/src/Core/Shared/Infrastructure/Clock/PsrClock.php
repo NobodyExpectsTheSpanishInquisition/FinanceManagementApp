@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Core\Shared\Infrastructure\Clock;
 
+use App\Core\Shared\Domain\Clock\ClockException;
 use App\Core\Shared\Domain\Clock\ClockInterface;
 use DateTimeImmutable;
 use DateTimeZone;
@@ -21,7 +22,16 @@ final readonly class PsrClock implements ClockInterface
     public function now(): DateTimeImmutable
     {
         $now = new DateTimeImmutable('now', $this->dateTimeZone);
+        $formattedTimestamp = DateTimeImmutable::createFromFormat(
+            $this->format,
+            $now->format($this->format),
+            $this->dateTimeZone
+        );
 
-        return DateTimeImmutable::createFromFormat($this->format, $now->format($this->format), $this->dateTimeZone);
+        if (false === $formattedTimestamp) {
+            throw ClockException::cannotCreateTimeStamp();
+        }
+
+        return $formattedTimestamp;
     }
 }

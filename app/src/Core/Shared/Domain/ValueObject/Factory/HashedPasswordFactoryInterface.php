@@ -10,7 +10,6 @@ use App\Core\Shared\Infrastructure\ValueObject\PlainPassword;
 
 interface HashedPasswordFactoryInterface
 {
-
     /**
      * @throws CannotHashPasswordException
      */

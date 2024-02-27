@@ -20,7 +20,6 @@ final readonly class RegisterFreeAccountCommand
         public LastName $lastName,
         public Email $email,
         public PlainPassword $password,
-    )
-    {
+    ) {
     }
 }

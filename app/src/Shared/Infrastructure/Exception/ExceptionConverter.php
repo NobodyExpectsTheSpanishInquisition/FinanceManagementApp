@@ -16,7 +16,7 @@ final readonly class ExceptionConverter
                 'error' => [
                     'message' => $exception->getMessage(),
                     'statusCode' => $exception->getCode(),
-                ]
+                ],
             ],
             $exception->getCode()
         );

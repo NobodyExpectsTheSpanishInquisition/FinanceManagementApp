@@ -19,7 +19,7 @@ final class RegisterAccountController extends AbstractController
     public function register(
         Request $request,
         RegisterAccountRequestMapper $requestMapper,
-        RegisterFreeAccountHandler $handler
+        RegisterFreeAccountHandler $registerFreeAccountHandler
     ): JsonResponse {
         $registerAccountRequest = $requestMapper->map($request);
 
@@ -28,7 +28,7 @@ final class RegisterAccountController extends AbstractController
 
             $accountType = $registerAccountRequest->accountType;
             match ($accountType) {
-                AccountType::FREE => $handler->handle(
+                AccountType::FREE => $registerFreeAccountHandler->handle(
                     new RegisterFreeAccountCommand(
                         $registerAccountRequest->accountId,
                         $registerAccountRequest->userId,
@@ -38,9 +38,6 @@ final class RegisterAccountController extends AbstractController
                         $registerAccountRequest->password,
                     )
                 ),
-                default => throw CannotRegisterAccountException::becauseProvidedAccountTypeIsNotSupported(
-                    $accountType->value
-                )
             };
         } catch (Exception $e) {
             return $this->exceptionConverter->convertToJsonResponse($e);

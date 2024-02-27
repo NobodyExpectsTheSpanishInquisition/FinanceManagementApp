@@ -15,8 +15,7 @@ abstract readonly class Account implements JsonSerializable
         protected AccountId $id,
         protected AccountType $accountType,
         protected CreatedAt $createdAt
-    )
-    {
+    ) {
     }
 
     /**
@@ -27,7 +26,7 @@ abstract readonly class Account implements JsonSerializable
         return [
             'id' => $this->id->uuid,
             'type' => $this->accountType->value,
-            'createdAt' => $this->createdAt->toString()
+            'createdAt' => $this->createdAt->toString(),
         ];
     }
 }

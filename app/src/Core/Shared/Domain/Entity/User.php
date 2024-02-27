@@ -9,6 +9,7 @@ use App\Core\Shared\Domain\ValueObject\Email;
 use App\Core\Shared\Domain\ValueObject\FirstName;
 use App\Core\Shared\Domain\ValueObject\LastName;
 use App\Core\Shared\Domain\ValueObject\UserId;
+use DateTimeInterface;
 use JsonSerializable;
 
 final readonly class User implements JsonSerializable
@@ -20,12 +21,11 @@ final readonly class User implements JsonSerializable
         private Email $email,
         private Credentials $credentials,
         private CreatedAt $createdAt,
-    )
-    {
+    ) {
     }
 
     /**
-     * @return array<string, string>
+     * @return array<string, array<string, string>|DateTimeInterface|string>>
      */
     public function jsonSerialize(): array
     {
@@ -35,7 +35,7 @@ final readonly class User implements JsonSerializable
             'lastName' => $this->lastName->lastName,
             'email' => $this->email->email,
             'credentials' => $this->credentials->jsonSerialize(),
-            'createdAt' => $this->createdAt->timestamp
+            'createdAt' => $this->createdAt->timestamp,
         ];
     }
 }

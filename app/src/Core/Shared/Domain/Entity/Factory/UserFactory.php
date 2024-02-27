@@ -16,7 +16,6 @@ use App\Core\Shared\Domain\ValueObject\UserId;
 
 final readonly class UserFactory
 {
-
     public function create(
         UserId $userId,
         FirstName $firstName,
@@ -24,8 +23,7 @@ final readonly class UserFactory
         Email $email,
         HashedPassword $password,
         CreatedAt $createdAt
-    ): User
-    {
+    ): User {
         return new User(
             $userId,
             $firstName,

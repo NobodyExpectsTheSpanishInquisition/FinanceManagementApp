@@ -6,5 +6,4 @@ namespace App\Core\Shared\Infrastructure\Request;
 
 interface RequestInterface
 {
-
 }
