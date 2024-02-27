@@ -1,0 +1,11 @@
+{
+  "id": "5C9D8480-78C6-4F89-829E-87397BCF9595",
+  "accountType": "FREE",
+  "user": {
+    "id": "E7290D00-F21F-4CCA-BFF7-7F8505313944",
+    "firstName": "TestFirstName",
+    "lastName": "TestLastName",
+    "email": "email@email.com",
+    "password": "Te5tP4ssw0rd!@#12321321414512321"
+  }
+}

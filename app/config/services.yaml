@@ -1,4 +1,9 @@
+imports:
+  - { resource: services.test.yaml}
+
 parameters:
+  app.clock.timezone: '%env(APP_TIMEZONE)%'
+  app.clock.format: '%env(APP_TIME_FORMAT)%'
 
 services:
   _defaults:
@@ -9,3 +14,9 @@ services:
     resource: '../src/'
     exclude:
       - '../src/Kernel.php'
+
+  App\Core\Shared\Infrastructure\Clock\PsrClock:
+    factory: [ 'App\Core\Shared\Infrastructure\Clock\PsrClockFactory', 'create' ]
+    arguments:
+      $timezone: '%app.clock.timezone%'
+      $format: '%app.clock.format%'
