@@ -31,6 +31,6 @@ final readonly class SymfonyHashedPasswordFactory implements HashedPasswordFacto
             throw CannotHashPasswordException::becauseThereIsViolation($violationsList->get(0)->getMessage());
         }
 
-        return new HashedPassword($this->passwordHasher->hashPassword($plainPassword, $plainPassword->password));
+        return new HashedPassword($this->passwordHasher->hashPassword($plainPassword, $plainPassword->getPassword()));
     }
 }
