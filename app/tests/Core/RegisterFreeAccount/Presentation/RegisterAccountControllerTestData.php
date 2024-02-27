@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Core\RegisterAccount\Presentation;
+namespace App\Tests\Core\RegisterFreeAccount\Presentation;
 
 use App\Core\Shared\Domain\ValueObject\AccountType;
 
 final readonly class RegisterAccountControllerTestData
 {
-    private const ROUTE_NAME = 'api.core.accounts.register';
+    private const ROUTE_NAME = 'api.core.accounts.free.register';
 
     public function getRouteName(): string
     {
@@ -30,5 +30,18 @@ final readonly class RegisterAccountControllerTestData
                 'email' => 'john.doe@email.com',
             ],
         ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function getRequestContentArray(): array
+    {
+        return json_decode(json: $this->getRequestContent(), associative: true);
+    }
+
+    public function getRequestContent(): string
+    {
+        return file_get_contents(__DIR__ . '/RegisterAccountRequest.json');
     }
 }

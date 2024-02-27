@@ -2,7 +2,7 @@
 
 namespace App\Tests\Core\Shared\Infrastructure\Factory\ValueObject;
 
-use App\Core\Shared\Domain\ValueObject\Exception\CannotCreatePasswordException;
+use App\Core\Shared\Domain\ValueObject\Exception\CannotHashPasswordException;
 use App\Core\Shared\Domain\ValueObject\HashedPassword;
 use App\Core\Shared\Infrastructure\Factory\ValueObject\SymfonyHashedPasswordFactory;
 use App\Core\Shared\Infrastructure\ValueObject\PlainPassword;
@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 final class SymfonyHashedPasswordFactoryTest extends TestCase
 {
     private ValidatorInterface|MockObject $validatorMock;
-    private string $plainPasswordString;
+    private PlainPassword $plainPassword;
     private UserPasswordHasher $hasher;
 
     public function test_FromString_ShouldReturnHashedPassword_WhenPlainPasswordDoesNotHaveViolations(): void
@@ -27,9 +27,14 @@ final class SymfonyHashedPasswordFactoryTest extends TestCase
         $this->validatorMock->method('validate')->willReturn($emptyViolationsList);
         $factory = $this->getFactory();
 
-        $hashedPassword = $factory->fromPlainPassword($this->plainPasswordString);
+        $hashedPassword = $factory->fromPlainPassword($this->plainPassword);
 
-        self::assertTrue($this->hasher->isPasswordValid($hashedPassword, $this->plainPasswordString));
+        self::assertTrue($this->hasher->isPasswordValid($hashedPassword, $this->plainPassword->password));
+    }
+
+    private function getFactory(): SymfonyHashedPasswordFactory
+    {
+        return new SymfonyHashedPasswordFactory($this->validatorMock, $this->hasher);
     }
 
     public function test_FromString_ShouldThrowException_WhenPlainPasswordHasViolation(): void
@@ -38,21 +43,16 @@ final class SymfonyHashedPasswordFactoryTest extends TestCase
             message        : 'Password has violation',
             messageTemplate: null,
             parameters     : [],
-            root           : new PlainPassword($this->plainPasswordString),
+            root           : $this->plainPassword,
             propertyPath   : null,
-            invalidValue   : $this->plainPasswordString
+            invalidValue   : $this->plainPassword
         );
         $violationList = new ConstraintViolationList([$violation]);
         $this->validatorMock->method('validate')->willReturn($violationList);
         $factory = $this->getFactory();
 
-        $this->expectExceptionObject(CannotCreatePasswordException::becauseThereIsViolation($violation->getMessage()));
-        $factory->fromPlainPassword($this->plainPasswordString);
-    }
-
-    private function getFactory(): SymfonyHashedPasswordFactory
-    {
-        return new SymfonyHashedPasswordFactory($this->validatorMock, $this->hasher);
+        $this->expectExceptionObject(CannotHashPasswordException::becauseThereIsViolation($violation->getMessage()));
+        $factory->fromPlainPassword($this->plainPassword);
     }
 
     protected function setUp(): void
@@ -68,6 +68,6 @@ final class SymfonyHashedPasswordFactoryTest extends TestCase
                 ]
             )
         );
-        $this->plainPasswordString = 'password';
+        $this->plainPassword = new PlainPassword('password');
     }
 }

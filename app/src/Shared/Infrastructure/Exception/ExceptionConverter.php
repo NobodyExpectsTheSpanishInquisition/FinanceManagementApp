@@ -9,11 +9,16 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 final readonly class ExceptionConverter
 {
-    /**
-     * @throws CannotConvertExceptionHttpRuntimeException
-     */
     public function convertToJsonResponse(Exception $exception): JsonResponse
     {
-        return new JsonResponse($exception->getMessage(), $exception->getCode());
+        return new JsonResponse(
+            [
+                'error' => [
+                    'message' => $exception->getMessage(),
+                    'statusCode' => $exception->getCode(),
+                ]
+            ],
+            $exception->getCode()
+        );
     }
 }

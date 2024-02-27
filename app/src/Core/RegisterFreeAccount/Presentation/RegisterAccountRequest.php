@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\RegisterAccount\Presentation;
+namespace App\Core\RegisterFreeAccount\Presentation;
 
 use App\Core\Shared\Domain\ValueObject\AccountId;
 use App\Core\Shared\Domain\ValueObject\AccountType;
@@ -18,7 +18,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 final readonly class RegisterAccountRequest implements RequestInterface
 {
     public const ACCOUNT_ID_KEY = 'id';
-    public const USER_ID_KEY = 'userId';
+    public const USER_KEY = 'user';
+    public const USER_ID_KEY = 'id';
     public const FIRST_NAME_KEY = 'firstName';
     public const LAST_NAME_KEY = 'lastName';
     public const EMAIL_KEY = 'email';

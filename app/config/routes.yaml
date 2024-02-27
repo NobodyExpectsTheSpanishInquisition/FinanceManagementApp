@@ -1,4 +1,4 @@
-api.core.accounts.register:
-  path: /api/accounts
+api.core.accounts.free.register:
+  path: /api/accounts/free
   methods: POST
-  controller: App\Core\RegisterAccount\Presentation\RegisterAccountController::register
+  controller: App\Core\RegisterFreeAccount\Presentation\RegisterAccountController::register

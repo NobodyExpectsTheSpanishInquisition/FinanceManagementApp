@@ -1,5 +1,9 @@
+imports:
+  - { resource: services.test.yaml}
+
 parameters:
-  app.clock.timezone: '%env(resolve: APP_TIMEZONE)%'
+  app.clock.timezone: '%env(APP_TIMEZONE)%'
+  app.clock.format: '%env(APP_TIME_FORMAT)%'
 
 services:
   _defaults:
@@ -15,3 +19,4 @@ services:
     factory: [ 'App\Core\Shared\Infrastructure\Clock\PsrClockFactory', 'create' ]
     arguments:
       $timezone: '%app.clock.timezone%'
+      $format: '%app.clock.format%'

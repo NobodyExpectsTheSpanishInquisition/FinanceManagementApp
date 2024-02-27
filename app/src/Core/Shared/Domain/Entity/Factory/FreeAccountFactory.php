@@ -6,7 +6,6 @@ namespace App\Core\Shared\Domain\Entity\Factory;
 
 use App\Core\Shared\Domain\Entity\FreeAccount;
 use App\Core\Shared\Domain\ValueObject\AccountId;
-use App\Core\Shared\Domain\ValueObject\AccountType;
 use App\Core\Shared\Domain\ValueObject\CreatedAt;
 use App\Core\Shared\Domain\ValueObject\Email;
 use App\Core\Shared\Domain\ValueObject\FirstName;
@@ -22,25 +21,23 @@ final readonly class FreeAccountFactory
 
     public function create(
         AccountId $accountId,
-        AccountType $accountType,
         CreatedAt $createdAt,
         UserId $userId,
         FirstName $firstName,
         LastName $lastName,
         Email $email,
         HashedPassword $password
-    ):
-    FreeAccount
-    {
+    ): FreeAccount {
         return new FreeAccount(
-            $accountId, $accountType, $this->userFactory->create(
-            $userId,
-            $firstName,
-            $lastName,
-            $email,
-            $password,
-            $createdAt
-        ), $createdAt
+            $accountId,
+            $this->userFactory->create(
+                $userId,
+                $firstName,
+                $lastName,
+                $email,
+                $password,
+                $createdAt
+            ), $createdAt
         );
     }
 }

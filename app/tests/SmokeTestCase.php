@@ -34,9 +34,9 @@ class SmokeTestCase extends WebTestCase
     {
         $uri = $this->router->generate($routeName);
         $this->client->request(
-            method    : TestHttpMethod::POST->name,
-            uri       : $uri,
-            parameters: $parameters,
+            method : TestHttpMethod::POST->name,
+            uri    : $uri,
+            content: json_encode($parameters),
         );
 
         /** @var JsonResponse */

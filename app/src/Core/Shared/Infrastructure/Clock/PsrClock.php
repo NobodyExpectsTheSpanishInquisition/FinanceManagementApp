@@ -11,7 +11,7 @@ use Exception;
 
 final readonly class PsrClock implements ClockInterface
 {
-    public function __construct(private DateTimeZone $dateTimeZone)
+    public function __construct(private DateTimeZone $dateTimeZone, private string $format)
     {
     }
 
@@ -20,6 +20,8 @@ final readonly class PsrClock implements ClockInterface
      */
     public function now(): DateTimeImmutable
     {
-        return new DateTimeImmutable('now', $this->dateTimeZone);
+        $now = new DateTimeImmutable('now', $this->dateTimeZone);
+
+        return DateTimeImmutable::createFromFormat($this->format, $now->format($this->format), $this->dateTimeZone);
     }
 }

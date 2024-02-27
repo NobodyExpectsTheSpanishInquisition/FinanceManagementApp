@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\RegisterAccount\Presentation;
+namespace App\Core\RegisterFreeAccount\Presentation;
 
 use App\Core\Shared\Domain\ValueObject\AccountId;
 use App\Core\Shared\Domain\ValueObject\AccountType;
@@ -18,14 +18,15 @@ final readonly class RegisterAccountRequestMapper
     public function map(Request $request): RegisterAccountRequest
     {
         $content = json_decode(json: $request->getContent(), associative: true);
+        $userContent = $content[RegisterAccountRequest::USER_KEY];
 
         return new RegisterAccountRequest(
             new AccountId($content[RegisterAccountRequest::ACCOUNT_ID_KEY]),
-            new UserId($content[RegisterAccountRequest::USER_ID_KEY]),
-            new FirstName($content[RegisterAccountRequest::FIRST_NAME_KEY]),
-            new LastName($content[RegisterAccountRequest::LAST_NAME_KEY]),
-            new Email($content[RegisterAccountRequest::EMAIL_KEY]),
-            new PlainPassword($request[RegisterAccountRequest::PASSWORD_KEY]),
+            new UserId($userContent[RegisterAccountRequest::USER_ID_KEY]),
+            new FirstName($userContent[RegisterAccountRequest::FIRST_NAME_KEY]),
+            new LastName($userContent[RegisterAccountRequest::LAST_NAME_KEY]),
+            new Email($userContent[RegisterAccountRequest::EMAIL_KEY]),
+            new PlainPassword($userContent[RegisterAccountRequest::PASSWORD_KEY]),
             AccountType::from($content[RegisterAccountRequest::ACCOUNT_TYPE_KEY])
         );
     }

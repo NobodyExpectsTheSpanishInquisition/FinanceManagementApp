@@ -2,30 +2,32 @@
 
 namespace App\Tests\Shared\Infrastructure\Exception;
 
-use App\Shared\Infrastructure\Exception\CannotConvertExceptionHttpRuntimeException;
 use App\Shared\Infrastructure\Exception\ExceptionConverter;
 use App\Tests\UnitTestCase;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class ExceptionConverterTest extends UnitTestCase
 {
     private ExceptionConverter $converter;
 
-    public function testConvert_ShouldThrowException_WhenUnrecognizedExceptionPassedToConvert(): void
+
+    public function testConvert_ShouldReturnJsonResponseWithMessageAndStatusCodeProvidedInException(): void
     {
-        $unrecognizedException = new TestUnrecognizedException();
+        $exception = new TestRequestException('test', 422);
 
-        $this->expectException(CannotConvertExceptionHttpRuntimeException::class);
-        $this->converter->convertToJsonResponse($unrecognizedException);
-    }
+        $response = $this->converter->convertToJsonResponse($exception);
 
-    public function testConvert_ShouldReturnBadRequestHttpException_WhenInstanceOfRequestExceptionPassed(): void
-    {
-        $exception = new TestRequestException();
-
-        $result = $this->converter->convertToJsonResponse($exception);
-
-        self::assertInstanceOf(BadRequestHttpException::class, $result);
+        self::assertEquals(
+            json_encode(
+                [
+                    'error' => [
+                        'message' => $exception->getMessage(),
+                        'statusCode' => $exception->getCode(),
+                    ]
+                ]
+            ),
+            $response->getContent()
+        );
+        self::assertEquals($exception->getCode(), $response->getStatusCode());
     }
 
     protected function setUp(): void

@@ -1,0 +1,12 @@
+when@test:
+
+  services:
+    _defaults:
+      autowire: true
+      autoconfigure: true
+
+    App\Tests\Spy\EventDispatcherSpy: ~
+    App\Core\Shared\Application\Event\EventDispatcherInterface: '@App\Tests\Spy\EventDispatcherSpy'
+
+    App\Tests\Stub\ClockStub: ~
+    App\Core\Shared\Domain\Clock\ClockInterface: '@App\Tests\Stub\ClockStub'
