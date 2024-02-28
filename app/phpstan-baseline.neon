@@ -1,37 +1,57 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cannot access offset 'accountType' on mixed\\.$#"
+			message: "#^Access to constant ACCOUNT_ID_KEY on an unknown class App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest\\.$#"
 			count: 1
 			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
 
 		-
-			message: "#^Cannot access offset 'email' on mixed\\.$#"
+			message: "#^Access to constant ACCOUNT_TYPE_KEY on an unknown class App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest\\.$#"
 			count: 1
 			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
 
 		-
-			message: "#^Cannot access offset 'firstName' on mixed\\.$#"
+			message: "#^Access to constant EMAIL_KEY on an unknown class App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest\\.$#"
 			count: 1
 			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
 
 		-
-			message: "#^Cannot access offset 'id' on mixed\\.$#"
-			count: 2
-			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
-
-		-
-			message: "#^Cannot access offset 'lastName' on mixed\\.$#"
+			message: "#^Access to constant FIRST_NAME_KEY on an unknown class App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest\\.$#"
 			count: 1
 			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
 
 		-
-			message: "#^Cannot access offset 'password' on mixed\\.$#"
+			message: "#^Access to constant LAST_NAME_KEY on an unknown class App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest\\.$#"
 			count: 1
 			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
 
 		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
+			message: "#^Access to constant PASSWORD_KEY on an unknown class App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Access to constant USER_ID_KEY on an unknown class App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Access to constant USER_KEY on an unknown class App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Cannot access offset mixed on mixed\\.$#"
+			count: 8
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Instantiated class App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest not found\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
+
+		-
+			message: "#^Method App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequestMapper\\:\\:map\\(\\) has invalid return type App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest\\.$#"
 			count: 1
 			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
 
@@ -71,6 +91,76 @@ parameters:
 			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
 
 		-
+			message: "#^Cannot access offset 'accountType' on mixed\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'email' on mixed\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'firstName' on mixed\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'id' on mixed\\.$#"
+			count: 2
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'lastName' on mixed\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'password' on mixed\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'user' on mixed\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$email of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\Email constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$firstName of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\FirstName constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$lastName of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\LastName constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$password of class App\\\\Core\\\\Shared\\\\Infrastructure\\\\ValueObject\\\\PlainPassword constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$uuid of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\AccountId constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$uuid of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\UserId constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\AccountType\\:\\:from\\(\\) expects int\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountRequestMapper.php
+
+		-
 			message: "#^Method App\\\\Core\\\\Shared\\\\Domain\\\\Entity\\\\Credentials\\:\\:jsonSerialize\\(\\) should return array\\<string, string\\> but returns array\\<string, App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\Email\\|App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\HashedPassword\\|string\\>\\.$#"
 			count: 1
 			path: src/Core/Shared/Domain/Entity/Credentials.php
@@ -106,14 +196,14 @@ parameters:
 			path: tests/ApplicationTestCase.php
 
 		-
-			message: "#^Method App\\\\Tests\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountControllerTestData\\:\\:getRequestContent\\(\\) should return string but returns string\\|false\\.$#"
+			message: "#^Method App\\\\Tests\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterFreeAccountControllerTestData\\:\\:getRequestContent\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
-			path: tests/Core/RegisterFreeAccount/Presentation/RegisterAccountControllerTestData.php
+			path: tests/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountControllerTestData.php
 
 		-
-			message: "#^Method App\\\\Tests\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountControllerTestData\\:\\:getRequestContentArray\\(\\) should return array\\<string, mixed\\> but returns mixed\\.$#"
+			message: "#^Method App\\\\Tests\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterFreeAccountControllerTestData\\:\\:getRequestContentArray\\(\\) should return array\\<string, mixed\\> but returns mixed\\.$#"
 			count: 1
-			path: tests/Core/RegisterFreeAccount/Presentation/RegisterAccountControllerTestData.php
+			path: tests/Core/RegisterFreeAccount/Presentation/RegisterFreeAccountControllerTestData.php
 
 		-
 			message: "#^Parameter \\$content of method Symfony\\\\Component\\\\BrowserKit\\\\AbstractBrowser\\:\\:request\\(\\) expects string\\|null, string\\|false given\\.$#"

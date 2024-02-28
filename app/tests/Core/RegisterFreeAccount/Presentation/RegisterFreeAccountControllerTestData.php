@@ -6,7 +6,7 @@ namespace App\Tests\Core\RegisterFreeAccount\Presentation;
 
 use App\Core\Shared\Domain\ValueObject\AccountType;
 
-final readonly class RegisterAccountControllerTestData
+final readonly class RegisterFreeAccountControllerTestData
 {
     private const ROUTE_NAME = 'api.core.accounts.free.register';
 
@@ -42,6 +42,6 @@ final readonly class RegisterAccountControllerTestData
 
     public function getRequestContent(): string
     {
-        return file_get_contents(__DIR__ . '/RegisterAccountRequest.json');
+        return file_get_contents(__DIR__ . '/RegisterFreeAccountRequest.json');
     }
 }
