@@ -4,9 +4,9 @@ namespace App\Tests\Core\RegisterFreeAccount\Presentation;
 
 use App\Tests\SmokeTestCase;
 
-class RegisterAccountControllerTest extends SmokeTestCase
+class RegisterFreeAccountControllerTest extends SmokeTestCase
 {
-    private RegisterAccountControllerTestData $testData;
+    private RegisterFreeAccountControllerTestData $testData;
 
     public function testRegisterAccount_ShouldReturn201StatusCode_WhenRequestHandledWithoutErrors(): void
     {
@@ -19,6 +19,6 @@ class RegisterAccountControllerTest extends SmokeTestCase
     {
         parent::setUp();
 
-        $this->testData = new RegisterAccountControllerTestData();
+        $this->testData = new RegisterFreeAccountControllerTestData();
     }
 }

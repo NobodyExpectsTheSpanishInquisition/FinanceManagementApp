@@ -12,11 +12,11 @@ use Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-final class RegisterAccountController extends AbstractController
+final class RegisterFreeAccountController extends AbstractController
 {
     public function register(
         Request $request,
-        RegisterAccountRequestMapper $requestMapper,
+        RegisterFreeAccountRequestMapper $requestMapper,
         RegisterFreeAccountHandler $registerFreeAccountHandler
     ): JsonResponse {
         $registerAccountRequest = $requestMapper->map($request);

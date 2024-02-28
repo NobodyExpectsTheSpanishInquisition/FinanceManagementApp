@@ -14,7 +14,7 @@ use App\Core\Shared\Infrastructure\Request\RequestInterface;
 use App\Core\Shared\Infrastructure\ValueObject\PlainPassword;
 use Symfony\Component\Validator\Constraints as Assert;
 
-final readonly class RegisterAccountRequest implements RequestInterface
+final readonly class RegisterFreeAccountRequest implements RequestInterface
 {
     public const ACCOUNT_ID_KEY = 'id';
 
