@@ -11,10 +11,6 @@ RUN apk update \
 
 RUN pecl install xdebug-3.2.1 && docker-php-ext-enable xdebug
 
-#RUN apk add rabbitmq-c-dev \
-#    && pecl install amqp \
-#    && docker-php-ext-enable amqp
-
 COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 
 RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.alpine.sh' | bash \
