@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Shared\Domain\Clock;
+namespace App\Shared\Domain\Clock;
 
 use Exception;
 

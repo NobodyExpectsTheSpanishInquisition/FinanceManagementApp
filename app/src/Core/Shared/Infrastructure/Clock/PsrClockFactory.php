@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Core\Shared\Infrastructure\Clock;
 
-use DateTimeInterface;
 use DateTimeZone;
 use Exception;
 

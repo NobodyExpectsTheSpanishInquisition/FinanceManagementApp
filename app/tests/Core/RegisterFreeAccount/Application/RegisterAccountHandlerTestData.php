@@ -6,7 +6,6 @@ namespace App\Tests\Core\RegisterFreeAccount\Application;
 
 use App\Core\RegisterFreeAccount\Application\RegisterFreeAccountCommand;
 use App\Core\Shared\Domain\ValueObject\AccountId;
-use App\Core\Shared\Domain\ValueObject\AccountType;
 use App\Core\Shared\Domain\ValueObject\Email;
 use App\Core\Shared\Domain\ValueObject\FirstName;
 use App\Core\Shared\Domain\ValueObject\LastName;

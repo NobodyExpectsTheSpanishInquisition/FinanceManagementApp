@@ -6,13 +6,14 @@ namespace App\Core\RegisterFreeAccount\Application;
 
 use App\Core\Shared\Application\Event\EventDispatcherInterface;
 use App\Core\Shared\Application\Repository\EmailRepositoryInterface;
-use App\Core\Shared\Domain\Clock\ClockInterface;
 use App\Core\Shared\Domain\Entity\Factory\FreeAccountFactory;
 use App\Core\Shared\Domain\Event\AccountRegistered;
-use App\Core\Shared\Domain\Event\EventTimestamp;
-use App\Core\Shared\Domain\ValueObject\CreatedAt;
 use App\Core\Shared\Domain\ValueObject\Exception\CannotHashPasswordException;
 use App\Core\Shared\Domain\ValueObject\Factory\HashedPasswordFactoryInterface;
+use App\Shared\Domain\Clock\ClockException;
+use App\Shared\Domain\Clock\ClockInterface;
+use App\Shared\Domain\Event\EventTimestamp;
+use App\Shared\Domain\ValueObject\CreatedAt;
 
 final readonly class RegisterFreeAccountHandler
 {
@@ -28,6 +29,7 @@ final readonly class RegisterFreeAccountHandler
     /**
      * @throws CannotRegisterAccountException
      * @throws CannotHashPasswordException
+     * @throws ClockException
      */
     public function handle(RegisterFreeAccountCommand $command): void
     {

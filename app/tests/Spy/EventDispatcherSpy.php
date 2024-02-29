@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Spy;
 
 use App\Core\Shared\Application\Event\EventDispatcherInterface;
-use App\Core\Shared\Domain\Event\EventInterface;
+use App\Shared\Domain\Event\EventInterface;
 
 final class EventDispatcherSpy implements EventDispatcherInterface
 {

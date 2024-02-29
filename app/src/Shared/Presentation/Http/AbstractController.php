@@ -8,7 +8,7 @@ use App\Core\Shared\Infrastructure\Request\RequestValidatorInterface;
 use App\Shared\Infrastructure\Exception\ExceptionConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as SymfonyAbstractController;
 
-class AbstractController extends SymfonyAbstractController
+abstract class AbstractController extends SymfonyAbstractController
 {
     public function __construct(
         protected ExceptionConverter $exceptionConverter,

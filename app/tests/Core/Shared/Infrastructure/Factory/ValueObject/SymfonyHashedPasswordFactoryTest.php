@@ -53,11 +53,6 @@ final class SymfonyHashedPasswordFactoryTest extends TestCase
         $factory->fromPlainPassword($this->plainPassword);
     }
 
-    private function getFactory(): SymfonyHashedPasswordFactory
-    {
-        return new SymfonyHashedPasswordFactory($this->validatorMock, $this->hasher);
-    }
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -72,5 +67,10 @@ final class SymfonyHashedPasswordFactoryTest extends TestCase
             )
         );
         $this->plainPassword = new PlainPassword('password');
+    }
+
+    private function getFactory(): SymfonyHashedPasswordFactory
+    {
+        return new SymfonyHashedPasswordFactory($this->validatorMock, $this->hasher);
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Shared\Domain\ValueObject;
+namespace App\Shared\Domain\ValueObject;
 
 use Symfony\Component\Validator\Constraints as Assert;
 

@@ -6,13 +6,13 @@ namespace App\Core\Shared\Domain\Entity\Factory;
 
 use App\Core\Shared\Domain\Entity\Credentials;
 use App\Core\Shared\Domain\Entity\User;
-use App\Core\Shared\Domain\ValueObject\CreatedAt;
 use App\Core\Shared\Domain\ValueObject\Email;
 use App\Core\Shared\Domain\ValueObject\FirstName;
 use App\Core\Shared\Domain\ValueObject\HashedPassword;
 use App\Core\Shared\Domain\ValueObject\LastName;
-use App\Core\Shared\Domain\ValueObject\UpdatedAt;
 use App\Core\Shared\Domain\ValueObject\UserId;
+use App\Shared\Domain\ValueObject\CreatedAt;
+use App\Shared\Domain\ValueObject\UpdatedAt;
 
 final readonly class UserFactory
 {

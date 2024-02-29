@@ -10,8 +10,8 @@ use App\Core\Shared\Domain\ValueObject\Email;
 use App\Core\Shared\Domain\ValueObject\FirstName;
 use App\Core\Shared\Domain\ValueObject\LastName;
 use App\Core\Shared\Domain\ValueObject\UserId;
-use App\Core\Shared\Infrastructure\Request\RequestInterface;
 use App\Core\Shared\Infrastructure\ValueObject\PlainPassword;
+use App\Shared\Infrastructure\Request\RequestInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final readonly class RegisterFreeAccountRequest implements RequestInterface

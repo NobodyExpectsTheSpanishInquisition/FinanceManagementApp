@@ -34,6 +34,15 @@ final class RegisterFreeAccountHandlerTest extends ApplicationTestCase
         $handler->handle($this->testData->getCommand());
     }
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->testData = new RegisterAccountHandlerTestData();
+        $this->assertions = new RegisterAccountHandlerTestAssertions($this);
+        $this->eventDispatcherSpy = $this->spyEventDispatcher();
+    }
+
     private function mockEmailRepository(bool $doesEmailExists): void
     {
         $emailRepositoryMock = $this->createMock(EmailRepositoryInterface::class);
@@ -47,14 +56,5 @@ final class RegisterFreeAccountHandlerTest extends ApplicationTestCase
     private function getHandler(): RegisterFreeAccountHandler
     {
         return $this->container->get(RegisterFreeAccountHandler::class);
-    }
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->testData = new RegisterAccountHandlerTestData();
-        $this->assertions = new RegisterAccountHandlerTestAssertions($this);
-        $this->eventDispatcherSpy = $this->getEventDispatcherSpy();
     }
 }

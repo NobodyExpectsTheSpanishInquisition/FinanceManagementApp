@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Exception;
 
+use App\Shared\Presentation\Http\ExceptionResponse;
 use Exception;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 final readonly class ExceptionConverter
 {
-    public function convertToJsonResponse(Exception $exception): JsonResponse
+    public function convertToExceptionResponse(Exception $exception): ExceptionResponse
     {
-        return new JsonResponse(
+        return new ExceptionResponse(
             [
                 'error' => [
                     'message' => $exception->getMessage(),

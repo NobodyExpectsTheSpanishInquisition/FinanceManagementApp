@@ -12,7 +12,7 @@ class ApplicationTestCase extends KernelTestCase
 {
     protected Container $container;
 
-    protected function getEventDispatcherSpy(): EventDispatcherSpy
+    protected function spyEventDispatcher(): EventDispatcherSpy
     {
         return $this->container->get(EventDispatcherSpy::class);
     }

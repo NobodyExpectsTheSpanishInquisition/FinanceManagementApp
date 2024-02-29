@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Core\Shared\Infrastructure\Request;
 
+use App\Shared\Infrastructure\Request\RequestInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 final readonly class SymfonyRequestValidator implements RequestValidatorInterface

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Stub;
 
-use App\Core\Shared\Infrastructure\Request\RequestInterface;
+use App\Shared\Infrastructure\Request\RequestInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final readonly class TestRequestStub implements RequestInterface

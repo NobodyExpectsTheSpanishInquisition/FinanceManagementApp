@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\AbstractBrowser;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Exception\InvalidParameterException;
 use Symfony\Component\Routing\Exception\MissingMandatoryParametersException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -21,23 +22,24 @@ class SmokeTestCase extends WebTestCase
 
     protected function assertResourceCreated(JsonResponse $response): void
     {
-        self::assertEquals(TestHttpStatusCode::CREATED->value, $response->getStatusCode());
+        self::assertEquals(Response::HTTP_CREATED, $response->getStatusCode());
     }
 
     /**
+     * @param array<string, mixed> $content
      * @param array<string, mixed> $parameters
      * @throws InvalidParameterException
      * @throws MissingMandatoryParametersException
      * @throws RouteNotFoundException
      */
-    protected function sendPostRequest(string $routeName, array $parameters): JsonResponse
+    protected function sendPostRequest(string $routeName, array $content, array $parameters = []): JsonResponse
     {
-        $uri = $this->router->generate($routeName);
+        $uri = $this->router->generate($routeName, $parameters);
 
         $this->client->request(
             method : TestHttpMethod::POST->name,
             uri    : $uri,
-            content: json_encode($parameters),
+            content: json_encode($content)
         );
 
         /** @var JsonResponse */
