@@ -6,7 +6,7 @@ namespace App\Core\Shared\Domain\Entity;
 
 use App\Core\Shared\Domain\ValueObject\AccountId;
 use App\Core\Shared\Domain\ValueObject\AccountType;
-use App\Core\Shared\Domain\ValueObject\CreatedAt;
+use App\Shared\Domain\ValueObject\CreatedAt;
 
 final readonly class FreeAccount extends Account
 {

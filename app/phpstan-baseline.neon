@@ -186,7 +186,47 @@ parameters:
 			path: src/Core/Shared/Infrastructure/Request/SymfonyRequestValidator.php
 
 		-
-			message: "#^Method App\\\\Tests\\\\ApplicationTestCase\\:\\:getEventDispatcherSpy\\(\\) should return App\\\\Tests\\\\Spy\\\\EventDispatcherSpy but returns object\\|null\\.$#"
+			message: "#^Cannot access offset 'id' on mixed\\.$#"
+			count: 1
+			path: src/Estimations/CreateEstimation/Presentation/CreateEstimationRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'ownerId' on mixed\\.$#"
+			count: 1
+			path: src/Estimations/CreateEstimation/Presentation/CreateEstimationRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'title' on mixed\\.$#"
+			count: 1
+			path: src/Estimations/CreateEstimation/Presentation/CreateEstimationRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'type' on mixed\\.$#"
+			count: 1
+			path: src/Estimations/CreateEstimation/Presentation/CreateEstimationRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$title of class App\\\\Estimations\\\\Shared\\\\Domain\\\\ValueObject\\\\Title constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Estimations/CreateEstimation/Presentation/CreateEstimationRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$uuid of class App\\\\Estimations\\\\Shared\\\\Domain\\\\ValueObject\\\\EstimationId constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Estimations/CreateEstimation/Presentation/CreateEstimationRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$uuid of class App\\\\Estimations\\\\Shared\\\\Domain\\\\ValueObject\\\\OwnerId constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Estimations/CreateEstimation/Presentation/CreateEstimationRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method App\\\\Estimations\\\\Shared\\\\Domain\\\\ValueObject\\\\EstimationType\\:\\:from\\(\\) expects int\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Estimations/CreateEstimation/Presentation/CreateEstimationRequestMapper.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\ApplicationTestCase\\:\\:spyEventDispatcher\\(\\) should return App\\\\Tests\\\\Spy\\\\EventDispatcherSpy but returns object\\|null\\.$#"
 			count: 1
 			path: tests/ApplicationTestCase.php
 

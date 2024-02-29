@@ -7,24 +7,24 @@ namespace App\Core\RegisterFreeAccount\Presentation;
 use App\Core\RegisterFreeAccount\Application\RegisterFreeAccountCommand;
 use App\Core\RegisterFreeAccount\Application\RegisterFreeAccountHandler;
 use App\Shared\Presentation\Http\AbstractController;
-use App\Shared\Presentation\HttpStatusCode;
 use Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 final class RegisterFreeAccountController extends AbstractController
 {
     public function register(
         Request $request,
         RegisterFreeAccountRequestMapper $requestMapper,
-        RegisterFreeAccountHandler $registerFreeAccountHandler
+        RegisterFreeAccountHandler $handler
     ): JsonResponse {
         $registerAccountRequest = $requestMapper->map($request);
 
         try {
             $this->requestValidator->assertRequestIsValid($registerAccountRequest);
 
-            $registerFreeAccountHandler->handle(
+            $handler->handle(
                 new RegisterFreeAccountCommand(
                     $registerAccountRequest->accountId,
                     $registerAccountRequest->userId,
@@ -35,9 +35,9 @@ final class RegisterFreeAccountController extends AbstractController
                 )
             );
         } catch (Exception $e) {
-            return $this->exceptionConverter->convertToJsonResponse($e);
+            return $this->exceptionConverter->convertToExceptionResponse($e);
         }
 
-        return new JsonResponse(null, HttpStatusCode::CREATED->value);
+        return new JsonResponse(null, Response::HTTP_CREATED);
     }
 }

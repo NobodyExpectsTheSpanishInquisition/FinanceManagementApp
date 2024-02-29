@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Stub;
 
-use App\Core\Shared\Domain\Clock\ClockInterface;
+use App\Shared\Domain\Clock\ClockInterface;
 use DateTimeImmutable;
 use DateTimeInterface;
 

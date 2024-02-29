@@ -14,7 +14,7 @@ class ExceptionConverterTest extends UnitTestCase
     {
         $exception = new TestRequestException('test', 422);
 
-        $response = $this->converter->convertToJsonResponse($exception);
+        $response = $this->converter->convertToExceptionResponse($exception);
 
         self::assertEquals(
             json_encode(

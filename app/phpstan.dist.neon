@@ -10,5 +10,4 @@ parameters:
     ignoreErrors:
         -
             message: '#^Service "[^"]+" is private.$#'
-            paths:
-                - tests/**
+            path: tests/**

@@ -6,7 +6,7 @@ namespace App\Core\Shared\Domain\Entity;
 
 use App\Core\Shared\Domain\ValueObject\Email;
 use App\Core\Shared\Domain\ValueObject\HashedPassword;
-use App\Core\Shared\Domain\ValueObject\UpdatedAt;
+use App\Shared\Domain\ValueObject\UpdatedAt;
 use JsonSerializable;
 
 final readonly class Credentials implements JsonSerializable
