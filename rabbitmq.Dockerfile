@@ -1,0 +1,2 @@
+ARG IMAGE_TAG
+FROM rabbitmq:${IMAGE_TAG}

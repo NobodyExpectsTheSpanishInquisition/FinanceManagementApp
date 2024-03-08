@@ -10,3 +10,13 @@ services:
     container_name: fma_monolith_php
     volumes:
       - ./app:/var/www/html:rw
+
+  rabbitmq:
+    build:
+      context: .
+      dockerfile: rabbitmq.Dockerfile
+      args:
+        - IMAGE_TAG=${RABBIT_MQ_IMAGE_TAG}
+    ports:
+      - ${RABBIT_MQ_ADMIN_PANEL_EXTERNAL_PORT}:15672
+    container_name: fma_rabbit_mq
