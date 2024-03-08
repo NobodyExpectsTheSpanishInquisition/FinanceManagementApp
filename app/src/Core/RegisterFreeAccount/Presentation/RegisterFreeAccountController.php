@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class RegisterFreeAccountController extends AbstractController
 {
-    public function register(
+    public function __invoke(
         Request $request,
         RegisterFreeAccountRequestMapper $requestMapper,
         RegisterFreeAccountHandler $handler

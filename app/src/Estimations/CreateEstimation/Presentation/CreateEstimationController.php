@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class CreateEstimationController extends AbstractController
 {
-    public function create(
+    public function __invoke(
         string $accountId,
         Request $request,
         CreateEstimationRequestMapper $requestMapper,

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Shared\Infrastructure\Exception;
 
 use App\Shared\Presentation\Http\ExceptionResponse;
-use Exception;
+use Throwable;
 
 final readonly class ExceptionConverter
 {
-    public function convertToExceptionResponse(Exception $exception): ExceptionResponse
+    public function convertToExceptionResponse(Throwable $exception): ExceptionResponse
     {
         return new ExceptionResponse(
             [
