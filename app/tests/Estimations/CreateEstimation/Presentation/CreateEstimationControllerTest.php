@@ -9,7 +9,7 @@ final class CreateEstimationControllerTest extends SmokeTestCase
 {
     private CreateEstimationControllerTestData $testData;
 
-    public function test_Create_ShouldReturn201StatusCode_WhenNoExceptionOccurred(): void
+    public function test_Invoke_ShouldReturn201StatusCode_WhenNoExceptionOccurred(): void
     {
         $this->testData->loadData();
 
@@ -19,10 +19,10 @@ final class CreateEstimationControllerTest extends SmokeTestCase
             $this->testData->getQueryParams()
         );
 
-        self::assertEquals(201, $response->getStatusCode());
+        $this->assertResourceCreated($response);
     }
 
-    public function test_Create_ShouldReturnExceptionResponse_WhenExceptionOccurred(): void
+    public function test_Invoke_ShouldReturnExceptionResponse_WhenExceptionOccurred(): void
     {
         $this->testData->loadData();
 
@@ -32,7 +32,7 @@ final class CreateEstimationControllerTest extends SmokeTestCase
             $this->testData->getQueryParams()
         );
 
-        self::assertInstanceOf(ExceptionResponse::class, $response);
+        $this->assertExceptionResponseReturned($response);
     }
 
     protected function setUp(): void

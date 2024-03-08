@@ -1,6 +1,46 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Cannot access offset 'email' on mixed\\.$#"
+			count: 1
+			path: src/Core/InviteUser/Presentation/InviteUserRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'firstName' on mixed\\.$#"
+			count: 1
+			path: src/Core/InviteUser/Presentation/InviteUserRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'id' on mixed\\.$#"
+			count: 1
+			path: src/Core/InviteUser/Presentation/InviteUserRequestMapper.php
+
+		-
+			message: "#^Cannot access offset 'lastName' on mixed\\.$#"
+			count: 1
+			path: src/Core/InviteUser/Presentation/InviteUserRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$email of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\Email constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/InviteUser/Presentation/InviteUserRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$firstName of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\FirstName constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/InviteUser/Presentation/InviteUserRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$lastName of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\LastName constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/InviteUser/Presentation/InviteUserRequestMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$uuid of class App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\UserId constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Core/InviteUser/Presentation/InviteUserRequestMapper.php
+
+		-
 			message: "#^Access to constant ACCOUNT_ID_KEY on an unknown class App\\\\Core\\\\RegisterFreeAccount\\\\Presentation\\\\RegisterAccountRequest\\.$#"
 			count: 1
 			path: src/Core/RegisterFreeAccount/Presentation/RegisterAccountRequestMapper.php
@@ -164,11 +204,6 @@ parameters:
 			message: "#^Method App\\\\Core\\\\Shared\\\\Domain\\\\Entity\\\\Credentials\\:\\:jsonSerialize\\(\\) should return array\\<string, string\\> but returns array\\<string, App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\Email\\|App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\HashedPassword\\|string\\>\\.$#"
 			count: 1
 			path: src/Core/Shared/Domain/Entity/Credentials.php
-
-		-
-			message: "#^Property App\\\\Core\\\\Shared\\\\Domain\\\\Entity\\\\FreeAccount\\:\\:\\$user is never read, only written\\.$#"
-			count: 1
-			path: src/Core/Shared/Domain/Entity/FreeAccount.php
 
 		-
 			message: "#^Property App\\\\Core\\\\Shared\\\\Infrastructure\\\\Event\\\\MessengerEventDispatcher\\:\\:\\$events is never read, only written\\.$#"

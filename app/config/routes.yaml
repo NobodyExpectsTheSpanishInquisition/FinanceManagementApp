@@ -1,9 +1,14 @@
 api.core.accounts.free.register:
   path: /api/accounts/free
   methods: POST
-  controller: App\Core\RegisterFreeAccount\Presentation\RegisterFreeAccountController::register
+  controller: App\Core\RegisterFreeAccount\Presentation\RegisterFreeAccountController
+
+api.core.accounts.invite.user:
+  path: /api/accounts/{accountId}/users
+  methods: PUT
+  controller: App\Core\InviteUser\Presentation\InviteUserController
 
 api.estimations.create:
   path: /api/accounts/{accountId}/estimations
   methods: POST
-  controller: App\Estimations\CreateEstimation\Presentation\CreateEstimationController::create
+  controller: App\Estimations\CreateEstimation\Presentation\CreateEstimationController

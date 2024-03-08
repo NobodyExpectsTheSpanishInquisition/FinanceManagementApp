@@ -8,7 +8,7 @@ class RegisterFreeAccountControllerTest extends SmokeTestCase
 {
     private RegisterFreeAccountControllerTestData $testData;
 
-    public function testRegisterAccount_ShouldReturn201StatusCode_WhenRequestHandledWithoutErrors(): void
+    public function test_Invoke_ShouldReturn201StatusCode_WhenRequestHandledWithoutErrors(): void
     {
         $response = $this->sendPostRequest($this->testData->getRouteName(), $this->testData->getRequestContentArray());
 
