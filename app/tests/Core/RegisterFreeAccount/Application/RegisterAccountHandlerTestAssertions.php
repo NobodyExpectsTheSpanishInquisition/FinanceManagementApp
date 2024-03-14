@@ -14,12 +14,10 @@ final readonly class RegisterAccountHandlerTestAssertions
     {
     }
 
-    public function assertAccountRegistered(EventDispatcherSpy $eventDispatcherSpy): void
+    public function assertAccountRegistered(): void
     {
-        $events = $eventDispatcherSpy->getDispatchedEvents();
-
-        $this->testCase::assertCount(1, $events);
-        $this->testCase::assertInstanceOf(AccountRegistered::class, $events[0]);
+        $this->testCase->getEventAssertions()
+            ->assertNumberOfConcreteEventsDispatched(AccountRegistered::class, 1);
     }
 
     public function assertExceptionWasThrownBecauseOfTakenEmail(): void

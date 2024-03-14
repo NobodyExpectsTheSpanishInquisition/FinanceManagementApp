@@ -7,13 +7,11 @@ namespace App\Tests\Core\RegisterFreeAccount\Application;
 use App\Core\RegisterFreeAccount\Application\RegisterFreeAccountHandler;
 use App\Core\Shared\Application\Repository\EmailRepositoryInterface;
 use App\Tests\ApplicationTestCase;
-use App\Tests\Spy\EventDispatcherSpy;
 
 final class RegisterFreeAccountHandlerTest extends ApplicationTestCase
 {
     private RegisterAccountHandlerTestData $testData;
     private RegisterAccountHandlerTestAssertions $assertions;
-    private EventDispatcherSpy $eventDispatcherSpy;
 
     public function test_Handle_ShouldCreateAccount_WhenAllDataAreCorrect(): void
     {
@@ -22,7 +20,7 @@ final class RegisterFreeAccountHandlerTest extends ApplicationTestCase
 
         $handler->handle($this->testData->getCommand());
 
-        $this->assertions->assertAccountRegistered($this->eventDispatcherSpy);
+        $this->assertions->assertAccountRegistered();
     }
 
     public function test_Handle_ShouldThrowException_WhenProvidedEmailAlreadyExists(): void
@@ -40,7 +38,6 @@ final class RegisterFreeAccountHandlerTest extends ApplicationTestCase
 
         $this->testData = new RegisterAccountHandlerTestData();
         $this->assertions = new RegisterAccountHandlerTestAssertions($this);
-        $this->eventDispatcherSpy = $this->spyEventDispatcher();
     }
 
     private function mockEmailRepository(bool $doesEmailExists): void

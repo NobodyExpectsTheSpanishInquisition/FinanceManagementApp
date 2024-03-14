@@ -7,9 +7,12 @@ RUN apk update \
     && apk add build-base \
     && apk add --update linux-headers \
     && apk add --no-cache postgresql-dev \
-    && docker-php-ext-install pdo_pgsql pgsql
-
-RUN pecl install xdebug-3.2.1 && docker-php-ext-enable xdebug
+    && apk add rabbitmq-c-dev \
+    && pecl install amqp \
+    && docker-php-ext-enable amqp \
+    && docker-php-ext-install pdo_pgsql pgsql \
+    && pecl install xdebug-3.2.1  \
+    && docker-php-ext-enable xdebug
 
 COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 
