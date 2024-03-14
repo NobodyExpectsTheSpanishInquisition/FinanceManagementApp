@@ -4,6 +4,7 @@ imports:
 parameters:
   app.clock.timezone: '%env(APP_TIMEZONE)%'
   app.clock.format: '%env(APP_TIME_FORMAT)%'
+  app.transport.events: '%env(APP_TRANSPORT_EVENTS)%'
 
 services:
   _defaults:

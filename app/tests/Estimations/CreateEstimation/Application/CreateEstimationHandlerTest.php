@@ -9,13 +9,11 @@ use App\Estimations\CreateEstimation\Application\CreateEstimationHandlerTestAsse
 use App\Estimations\CreateEstimation\Domain\CannotCreateEstimationException;
 use App\Estimations\CreateEstimation\Domain\CreateEstimationAssertionInterface;
 use App\Tests\ApplicationTestCase;
-use App\Tests\Spy\EventDispatcherSpy;
 
 final class CreateEstimationHandlerTest extends ApplicationTestCase
 {
     private CreateEstimationHandlerTestData $testData;
     private CreateEstimationHandlerTestAssertions $assertions;
-    private EventDispatcherSpy $eventDispatcherSpy;
 
     public function test_Handle_ShouldCreateEstimation_WhenAllRequirementsWereMeet(): void
     {
@@ -24,7 +22,7 @@ final class CreateEstimationHandlerTest extends ApplicationTestCase
         $handler = $this->getHandler();
         $handler->handle($this->testData->getCommand());
 
-        $this->assertions->assertEstimationCreated($this->eventDispatcherSpy);
+        $this->assertions->assertEstimationCreated();
     }
 
     public function test_Handle_ShouldThrowException_WhenCannotCreateEstimation(): void
@@ -40,7 +38,7 @@ final class CreateEstimationHandlerTest extends ApplicationTestCase
         $this->expectException(CannotCreateEstimationException::class);
         $handler->handle($this->testData->getCommand());
 
-        $this->assertions->assertEstimationWasNotCreated($this->eventDispatcherSpy);
+        $this->assertions->assertEstimationWasNotCreated();
     }
 
     protected function setUp(): void
@@ -49,7 +47,6 @@ final class CreateEstimationHandlerTest extends ApplicationTestCase
 
         $this->testData = new CreateEstimationHandlerTestData();
         $this->assertions = new CreateEstimationHandlerTestAssertions($this);
-        $this->eventDispatcherSpy = $this->spyEventDispatcher();
     }
 
     private function getHandler(): CreateEstimationHandler

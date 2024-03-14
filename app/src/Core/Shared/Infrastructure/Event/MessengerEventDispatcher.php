@@ -6,6 +6,7 @@ namespace App\Core\Shared\Infrastructure\Event;
 
 use App\Core\Shared\Application\Event\EventDispatcherInterface;
 use App\Shared\Domain\Event\EventInterface;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 final class MessengerEventDispatcher implements EventDispatcherInterface
 {
@@ -14,14 +15,18 @@ final class MessengerEventDispatcher implements EventDispatcherInterface
      */
     private array $events;
 
-    public function __construct()
+    public function __construct(private readonly MessageBusInterface $bus)
     {
         $this->events = [];
     }
 
     public function dispatch(): void
     {
-        // TODO: Implement dispatch() method.
+        foreach ($this->events as $event) {
+            $this->bus->dispatch($event);
+        }
+
+        $this->events = [];
     }
 
     public function push(EventInterface $event): void

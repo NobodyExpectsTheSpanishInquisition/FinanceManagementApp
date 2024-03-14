@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
-use App\Tests\Spy\EventDispatcherSpy;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\Container;
 
 class ApplicationTestCase extends KernelTestCase
 {
     protected Container $container;
+    private EventAssertions $eventAssertions;
 
-    protected function spyEventDispatcher(): EventDispatcherSpy
+    public function getEventAssertions(): EventAssertions
     {
-        return $this->container->get(EventDispatcherSpy::class);
+        return $this->eventAssertions;
     }
 
     protected function setUp(): void
@@ -22,5 +22,6 @@ class ApplicationTestCase extends KernelTestCase
         parent::setUp();
 
         $this->container = self::getContainer();
+        $this->eventAssertions = new EventAssertions($this, $this->container->get('messenger.transport.events'));
     }
 }

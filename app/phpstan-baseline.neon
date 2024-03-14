@@ -171,11 +171,6 @@ parameters:
 			path: src/Core/Shared/Domain/Entity/FreeAccount.php
 
 		-
-			message: "#^Property App\\\\Core\\\\Shared\\\\Infrastructure\\\\Event\\\\MessengerEventDispatcher\\:\\:\\$events is never read, only written\\.$#"
-			count: 1
-			path: src/Core/Shared/Infrastructure/Event/MessengerEventDispatcher.php
-
-		-
 			message: "#^Parameter \\#1 \\$violation of static method App\\\\Core\\\\Shared\\\\Domain\\\\ValueObject\\\\Exception\\\\CannotHashPasswordException\\:\\:becauseThereIsViolation\\(\\) expects string, string\\|Stringable given\\.$#"
 			count: 1
 			path: src/Core/Shared/Infrastructure/Factory/ValueObject/SymfonyHashedPasswordFactory.php
@@ -226,12 +221,7 @@ parameters:
 			path: src/Estimations/CreateEstimation/Presentation/CreateEstimationRequestMapper.php
 
 		-
-			message: "#^Method App\\\\Tests\\\\ApplicationTestCase\\:\\:spyEventDispatcher\\(\\) should return App\\\\Tests\\\\Spy\\\\EventDispatcherSpy but returns object\\|null\\.$#"
-			count: 1
-			path: tests/ApplicationTestCase.php
-
-		-
-			message: "#^Service \"App\\\\Tests\\\\Spy\\\\EventDispatcherSpy\" is not registered in the container\\.$#"
+			message: "#^Parameter \\#2 \\$transport of class App\\\\Tests\\\\EventAssertions constructor expects Symfony\\\\Component\\\\Messenger\\\\Transport\\\\InMemory\\\\InMemoryTransport, Symfony\\\\Component\\\\Messenger\\\\Transport\\\\TransportInterface given\\.$#"
 			count: 1
 			path: tests/ApplicationTestCase.php
 

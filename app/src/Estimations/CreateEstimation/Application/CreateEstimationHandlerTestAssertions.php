@@ -6,7 +6,6 @@ namespace App\Estimations\CreateEstimation\Application;
 
 use App\Estimations\Shared\Domain\Event\EstimationCreated;
 use App\Tests\Estimations\CreateEstimation\Application\CreateEstimationHandlerTest;
-use App\Tests\Spy\EventDispatcherSpy;
 
 final readonly class CreateEstimationHandlerTestAssertions
 {
@@ -14,17 +13,15 @@ final readonly class CreateEstimationHandlerTestAssertions
     {
     }
 
-    public function assertEstimationCreated(EventDispatcherSpy $eventDispatcherSpy): void
+    public function assertEstimationCreated(): void
     {
-        $events = $eventDispatcherSpy->getDispatchedEvents();
-        $this->testCase::assertCount(1, $events);
-
-        $dispatchedEvent = $events[0];
-        $this->testCase::assertInstanceOf(EstimationCreated::class, $dispatchedEvent);
+        $this->testCase->getEventAssertions()
+            ->assertNumberOfConcreteEventsDispatched(EstimationCreated::class, 1);
     }
 
-    public function assertEstimationWasNotCreated(EventDispatcherSpy $eventDispatcherSpy): void
+    public function assertEstimationWasNotCreated(): void
     {
-        $this->testCase::assertEmpty($eventDispatcherSpy->getDispatchedEvents());
+        $this->testCase->getEventAssertions()
+            ->assertNumberOfConcreteEventsDispatched(EstimationCreated::class, 0);
     }
 }
