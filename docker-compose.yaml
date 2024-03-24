@@ -20,3 +20,13 @@ services:
     ports:
       - ${RABBIT_MQ_ADMIN_PANEL_EXTERNAL_PORT}:15672
     container_name: fma_rabbit_mq
+
+  datahub-write:
+    build:
+      context: .
+      dockerfile: datahub.write.Dockerfile
+      args:
+        - IMAGE_TAG=${GOLANG_IMAGE_TAG}
+    volumes:
+      - ./datahub/write:/src:rw
+    container_name: fma_datahub_write
