@@ -8,7 +8,9 @@ framework:
       # async: '%env(MESSENGER_TRANSPORT_DSN)%'
       # failed: 'doctrine://default?queue_name=failed'
       # sync: 'sync://'
-      events: '%app.transport.events%'
+      events:
+        dsn: '%app.transport.events%'
+        serializer: 'App\Shared\Infrastructure\Event\SimplyMessageSerializer'
     routing:
       App\Shared\Domain\Event\EventInterface: events
     # Route your messages to the transports

@@ -6,6 +6,7 @@ namespace App\Estimations\Shared\Domain\Event;
 
 use App\Estimations\Shared\Domain\Entity\Estimation;
 use App\Shared\Domain\Event\EventInterface;
+use App\Shared\Domain\Event\EventKey;
 use App\Shared\Domain\Event\EventTimestamp;
 
 final readonly class EstimationCreated implements EventInterface
@@ -15,7 +16,7 @@ final readonly class EstimationCreated implements EventInterface
     }
 
     /**
-     * @return array<string, mixed>
+     * @inheritDoc
      */
     public function jsonSerialize(): array
     {
@@ -25,5 +26,10 @@ final readonly class EstimationCreated implements EventInterface
             ],
             'timestamp' => $this->timestamp->toString(),
         ];
+    }
+
+    public function getKey(): EventKey
+    {
+        return EventKey::ESTIMATION_CREATED;
     }
 }

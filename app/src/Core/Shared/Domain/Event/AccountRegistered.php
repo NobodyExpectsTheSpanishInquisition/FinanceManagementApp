@@ -6,6 +6,7 @@ namespace App\Core\Shared\Domain\Event;
 
 use App\Core\Shared\Domain\Entity\Account;
 use App\Shared\Domain\Event\EventInterface;
+use App\Shared\Domain\Event\EventKey;
 use App\Shared\Domain\Event\EventTimestamp;
 
 final readonly class AccountRegistered implements EventInterface
@@ -14,8 +15,9 @@ final readonly class AccountRegistered implements EventInterface
     {
     }
 
+
     /**
-     * @return array<string, mixed>
+     * @inheritDoc
      */
     public function jsonSerialize(): array
     {
@@ -25,5 +27,10 @@ final readonly class AccountRegistered implements EventInterface
             ],
             'timestamp' => $this->timestamp->toString(),
         ];
+    }
+
+    public function getKey(): EventKey
+    {
+        return EventKey::ACCOUNT_REGISTERED;
     }
 }
